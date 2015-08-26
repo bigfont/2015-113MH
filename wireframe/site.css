@@ -1,6 +1,12 @@
 body {
     margin-top: 79px;
 }
+
+h1, h2
+{
+    margin:40px 0;
+}
+
 footer {
     height: 200px;
     margin-top: 50px;
@@ -8,14 +14,10 @@ footer {
 .col-circle img {
     margin: 10px 0;
 }
-.bg-primary, .btn-primary {
-    background: #20785c none repeat scroll 0 0 !important;
-    color: #ffdd00 !important;
-}
 .img-banner {
     width: 100%;
 }
-/*Navbar
+/* Navbar
 ----------------------------*/
 nav.navbar {
     font-size: 2em;
@@ -29,22 +31,29 @@ nav.navbar li.active a {
 nav.navbar img {
     height: 50px;
 }
-/*Font-size
+/* Cards
 ----------------------------*/
-.card-text
-{
-    font-size:20px;
-    margin:30px 0;
-}
+
 .card.card-inverse .card-img-overlay
 {
     color:white;
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(0,0,0,0.4);
 }
-.card.card-inverse .card-text
+.card.card-inverse .card-text,
+.card.card-inverse .card-title
 {
     color:white;
 }
 
+.card .card-text
+{
+    font-size:20px;
+    margin:30px 0;
+}
+.card img
+{
+    width:100%;
+    max-width:100%;
+}
 
 
