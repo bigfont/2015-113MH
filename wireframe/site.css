@@ -37,8 +37,15 @@ nav.navbar img {
 .card.card-inverse .card-img-overlay
 {
     color:white;
-    background-color:rgba(0,0,0,0.4);
+    background-color:rgba(0,0,0,0.3);
 }
+.card.card-inverse .card-img-overlay:hover
+{
+    color:white;
+    background-color:rgba(0,0,0,0.6);
+}
+
+
 .card.card-inverse .card-text,
 .card.card-inverse .card-title
 {
