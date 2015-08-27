@@ -1,0 +1,22 @@
+﻿.card-group | .card-deck
+
+	.card.text-center.card-inverse.card-primary
+
+		.card-header
+
+		.card-img
+
+		.card-img-top
+
+		.card-block | .card-img-overlay
+
+			.card-title
+			.card-text
+			.card-link
+			.card-subtitle
+			.card-blockquote
+
+		.card-img-bottom
+
+		.card-footer
+
