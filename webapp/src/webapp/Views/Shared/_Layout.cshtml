@@ -12,17 +12,12 @@
        Note: box-sizing is border-box.
        The border and padding are moved inside the width rather than adding to it.
        -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.min.css" />
 
 </head>
-
-
 <body>
-    @RenderBody()
-
-
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
             &#9776;
@@ -51,6 +46,9 @@
             </ul>
         </div>
     </nav>
+    
+    @RenderBody()    
+    
     <footer class="bg-primary"></footer>
 
 
