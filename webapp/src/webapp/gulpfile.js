@@ -73,6 +73,13 @@ gulp.task("bootstrap:sass", function (cb) {
 
 gulp.task("bootstrap", ["bootstrap:sass", "bootstrap:js"]);
 
+
+// bindings
+// +++++++++++++++++++++++++++++++++++++++ 
+
+gulp.task("clean", function () {});
+
+
 // default
 // +++++++++++++++++++++++++++++++++++++++ 
 
