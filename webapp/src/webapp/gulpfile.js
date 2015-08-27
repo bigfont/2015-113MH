@@ -4,68 +4,79 @@ var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
+    rename = require("gulp-rename"),
     uglify = require("gulp-uglify"),
     sass = require('gulp-sass'),
     project = require("./project.json");
 
+// paths
+// +++++++++++++++++++++++++++++++++++++++ 
+
 var paths = {
-    webroot: "./" + project.webroot + "/"
+    webroot: "./" + project.webroot + "/",
+    bootstrap: "./lib/bootstrap/",
+    site: "./lib/site/"
 };
 
-paths.js = paths.webroot + "js/**/*.js";
-paths.minJs = paths.webroot + "js/**/*.min.js";
-paths.concatJsDest = paths.webroot + "js/site.min.js";
+paths.bootstrapJsDest = paths.webroot + "js/bootstrap.min.js";
+paths.bootstrapJs = paths.bootstrap + "js/dist/*.js";
 
-paths.css = paths.webroot + "css/**/*.css";
-paths.minCss = paths.webroot + "css/**/*.min.css";
-paths.concatCssDest = paths.webroot + "css/site.min.css";
+paths.bootstrapSassDest = paths.webroot + "css/bootstrap.min.css";
+paths.bootstrapSass =  paths.bootstrap + "scss/bootstrap.scss";
 
-paths.sass = "./Content/sass/**/*.scss";
-paths.sassCssDest = paths.webroot + "css";
+paths.siteSassDest = paths.webroot + "css/site.min.css";
+paths.siteSass = paths.site + "scss/site.scss";
 
-gulp.task("clean:js", function (cb) {
-    rimraf(paths.concatJsDest, cb);
+// site
+// +++++++++++++++++++++++++++++++++++++++ 
+
+gulp.task("site:js", function (cb) {
+    
 });
 
-gulp.task("clean:css", function (cb) {
-    rimraf(paths.concatCssDest, cb);
+gulp.task("site:sass", function (cb) {
+    // clean
+    rimraf(paths.siteSassDest, cb);
+    // build
+    gulp.src(paths.siteSass)
+        .pipe(sass().on("error", sass.logError))
+        .pipe(cssmin())
+        .pipe(rename(paths.siteSassDest))
+        .pipe(gulp.dest("."));
 });
 
-gulp.task("clean:sass", function (cb) {
-    rimraf(paths.sassCssDest, cb);
-});
+gulp.task("site", ["site:sass", "site:js"]);
 
-gulp.task("clean", [
-    "clean:js",
-    "clean:css",
-    "clean:sass"]);
+// bootstrap
+// +++++++++++++++++++++++++++++++++++++++ 
 
-gulp.task("min:js", function () {
-    gulp.src([paths.js, "!" + paths.minJs], { base: "." })
-        .pipe(concat(paths.concatJsDest))
+gulp.task("bootstrap:js", function (cb) {
+    // clean
+    rimraf(paths.bootstrapJsDest, cb);
+    // build
+    gulp.src(paths.bootstrapJs)
+        .pipe(concat(paths.bootstrapJsDest))
         .pipe(uglify())
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min:css", function () {
-    gulp.src([paths.css, "!" + paths.minCss])
-        .pipe(concat(paths.concatCssDest))
+gulp.task("bootstrap:sass", function (cb) {
+    // clean
+    rimraf(paths.bootstrapSassDest, cb);
+    // build
+    gulp.src(paths.bootstrapSass)
+        .pipe(sass().on("error", sass.logError))
         .pipe(cssmin())
+        .pipe(rename(paths.bootstrapSassDest))
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:js", "min:css"]);
+gulp.task("bootstrap", ["bootstrap:sass", "bootstrap:js"]);
 
-gulp.task("build:sass", function () {
-    gulp.src(paths.sass)
-        .pipe(sass().on("error", sass.logError))
-        .pipe(gulp.dest(paths.sassCssDest));
-});
-
-gulp.task("build", ["build:sass"]);
+// default
+// +++++++++++++++++++++++++++++++++++++++ 
 
 gulp.task("default", [
-    "clean",
-    "build",
-    "min"
+    "site",
+    "bootstrap"
 ]);
