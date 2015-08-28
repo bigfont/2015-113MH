@@ -1,6 +1,4 @@
-﻿/// <binding Clean='clean' />
-
-var gulp = require("gulp"),
+﻿var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
@@ -13,31 +11,31 @@ var gulp = require("gulp"),
 // +++++++++++++++++++++++++++++++++++++++ 
 
 var paths = {
-    webroot: "./" + project.webroot + "/",
-    bootstrap: "./lib/bootstrap/",
-    site: "./lib/site/"
+    webroot: "./" + project.webroot + "/"
 };
 
+paths.bootstrap = paths.webroot + "lib/bootstrap/";
 paths.bootstrapJsDest = paths.webroot + "js/bootstrap.min.js";
 paths.bootstrapJs = paths.bootstrap + "js/dist/*.js";
-
 paths.bootstrapSassDest = paths.webroot + "css/bootstrap.min.css";
-paths.bootstrapSass =  paths.bootstrap + "scss/bootstrap.scss";
+paths.bootstrapSass = paths.bootstrap + "scss/bootstrap.scss";
 
+paths.site = paths.webroot + "site/";
 paths.siteSassDest = paths.webroot + "css/site.min.css";
 paths.siteSass = paths.site + "scss/site.scss";
 
 // site
 // +++++++++++++++++++++++++++++++++++++++ 
 
+gulp.task("site:clean", function (cb) {
+    rimraf(paths.siteSassDest, cb);
+});
+
 gulp.task("site:js", function (cb) {
-    
+
 });
 
 gulp.task("site:sass", function (cb) {
-    // clean
-    rimraf(paths.siteSassDest, cb);
-    // build
     gulp.src(paths.siteSass)
         .pipe(sass().on("error", sass.logError))
         .pipe(cssmin())
@@ -50,10 +48,11 @@ gulp.task("site", ["site:sass", "site:js"]);
 // bootstrap
 // +++++++++++++++++++++++++++++++++++++++ 
 
-gulp.task("bootstrap:js", function (cb) {
-    // clean
+gulp.task("bootstrap:clean", function (cb) {
     rimraf(paths.bootstrapJsDest, cb);
-    // build
+});
+
+gulp.task("bootstrap:js", function (cb) {
     gulp.src(paths.bootstrapJs)
         .pipe(concat(paths.bootstrapJsDest))
         .pipe(uglify())
@@ -72,13 +71,6 @@ gulp.task("bootstrap:sass", function (cb) {
 });
 
 gulp.task("bootstrap", ["bootstrap:sass", "bootstrap:js"]);
-
-
-// bindings
-// +++++++++++++++++++++++++++++++++++++++ 
-
-gulp.task("clean", function () {});
-
 
 // default
 // +++++++++++++++++++++++++++++++++++++++ 
