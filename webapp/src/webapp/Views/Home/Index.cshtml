@@ -10,7 +10,6 @@
 
 <div class="container-fluid">
 
-
     <div class="row">
 
         @Html.Partial("_ClientType", new ClientTypeViewModel() { Title = "Residential" })
@@ -18,7 +17,6 @@
         @Html.Partial("_ClientType", new ClientTypeViewModel() { Title = "Commercial" })
 
     </div>
-
 
     <div class="row">
         <div class="col-md-12">
@@ -28,58 +26,17 @@
         </div>
     </div>
 
-
     <div class="row">
-        <div class="col-sm-3">
-            <div class="card text-center card-inverse">
-                <img class="card-img img-responsive" src="Images/card-img-renovate.jpg" alt="Card image cap" />
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Renovate</h2>
-                    <p class="card-text">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center card-inverse">
-                <img class="card-img img-responsive" src="Images/card-img-repair.jpg" alt="Card image cap" />
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Repair</h2>
-                    <p class="card-text">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center card-inverse">
-                <img class="card-img img-responsive" src="Images/card-img-maintain.jpg" alt="Card image cap" />
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Maintain</h2>
-                    <p class="card-text">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center card-inverse">
-                <img class="card-img img-responsive" src="Images/card-img-realtor.jpg" alt="Card image cap" />
-                <div class="card-img-overlay">
-                    <h2 class="card-title">REALTOR</h2>
-                    <p class="card-text">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
+        
+        @Html.Partial("_ServiceCategory", new ServiceCategoryViewModel() { Title= "Renovate", ImageName = "Images/card-img-renovate.jpg" } )
+       
+        @Html.Partial("_ServiceCategory", new ServiceCategoryViewModel() { Title= "Repair", ImageName = "Images/card-img-repair.jpg" } )
+        
+        @Html.Partial("_ServiceCategory", new ServiceCategoryViewModel() { Title= "Maintain", ImageName = "Images/card-img-maintain.jpg" } )
+                     
+        @Html.Partial("_ServiceCategory", new ServiceCategoryViewModel() { Title= "REALTOR", ImageName = "Images/card-img-realtor.jpg" } )
+      
     </div>
-
 
     <div class="row">
         <div class="col-md-12">
@@ -88,7 +45,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row">
 
@@ -106,7 +62,6 @@
 
     </div>
 
-
     <div class="row">
 
         @Html.Partial("_SubService", new SubServiceViewModel() { Title = "Gutter Cleaning", ImageName = "card-img-gutter-cleaning.jpg" })
@@ -122,6 +77,5 @@
         @Html.Partial("_SubService", new SubServiceViewModel() { Title = "Gutter Cleaning", ImageName = "card-img-gutter-cleaning.jpg" })
 
     </div>
-
 
 </div>

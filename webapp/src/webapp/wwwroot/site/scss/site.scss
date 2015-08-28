@@ -21,7 +21,7 @@ h3 {
 footer {
   height: 200px;
   margin-top: 50px;
-  background-color: $green;
+  background-color: $gray-dark;
 }
 
 /* Navbar
@@ -37,19 +37,16 @@ nav.navbar img {
 /* Cards
 ----------------------------*/
 
-.card.card-inverse .card-img-overlay {
+.card.card-inverse {
   color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.card.card-inverse .card-img-overlay:hover {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.card.card-inverse .card-text,
-.card.card-inverse .card-title {
-  color: white;
+  .card-img-overlay {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .card-img-overlay:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 }
 
 .card .card-text {
@@ -62,8 +59,14 @@ nav.navbar img {
   max-width: 100%;
 }
 
-.card .btn {
-  margin-top: 60px;
+.card.card-subservice {
+  position: relative;
+  .btn.btn-link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
 }
 
 /*Banner
@@ -80,7 +83,7 @@ nav.navbar img {
 ----------------------------*/
 
 body:after {
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   color: red;
