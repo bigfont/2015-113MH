@@ -24,6 +24,15 @@ paths.site = paths.webroot + "site/";
 paths.siteSassDest = paths.webroot + "css/site.min.css";
 paths.siteSass = paths.site + "scss/site.scss";
 
+// watch
+// +++++++++++++++++++++++++++++++++++++++ 
+
+gulp.task("watch:sass", function() {
+    
+      gulp.watch(paths.siteSass,['site:sass']);
+    
+});
+
 // site
 // +++++++++++++++++++++++++++++++++++++++ 
 
@@ -31,11 +40,11 @@ gulp.task("site:clean", function (cb) {
     rimraf(paths.siteSassDest, cb);
 });
 
-gulp.task("site:js", function (cb) {
+gulp.task("site:js", function () {
 
 });
 
-gulp.task("site:sass", function (cb) {
+gulp.task("site:sass", function () {
     gulp.src(paths.siteSass)
         .pipe(sass().on("error", sass.logError))
         .pipe(cssmin())
