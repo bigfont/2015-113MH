@@ -121,8 +121,7 @@ $grid-gutter-width:          1.875rem !default; // 30px
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
-
-$font-family-sans-serif:     "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:     'Maven Pro', sans-serif !default;
 $font-family-serif:          Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:           $font-family-sans-serif !default;
@@ -341,10 +340,10 @@ $navbar-border-radius:              $border-radius !default;
 $navbar-padding-horizontal:         $spacer !default;
 $navbar-padding-vertical:           ($spacer / 2) !default;
 
-$navbar-dark-color:                 rgba(255,255,255,.5);
-$navbar-dark-hover-color:           rgba(255,255,255,.75);
-$navbar-dark-active-color:          rgba(255,255,255,1);
-$navbar-dark-disabled-color:        rgba(255,255,255,.25);
+$navbar-dark-color:                 rgba(255,255,255,0.75);
+$navbar-dark-hover-color:           rgba(255,255,255,1);
+$navbar-dark-active-color:          rgba(239,210,30,1);
+$navbar-dark-disabled-color:        rgba(239,210,30,0.25);
 
 $navbar-light-color:                rgba(0,0,0,.3);
 $navbar-light-hover-color:          rgba(0,0,0,.6);

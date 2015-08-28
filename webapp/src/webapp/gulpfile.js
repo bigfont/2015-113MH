@@ -28,8 +28,8 @@ paths.siteSass = paths.site + "scss/site.scss";
 // +++++++++++++++++++++++++++++++++++++++ 
 
 gulp.task("watch:sass", function () {
-    gulp.watch(paths.siteSass, ['site:sass']);
-    gulp.watch(paths.bootstrapSass, ['bootstrap:sass']);
+    gulp.watch(paths.site + "**/*.scss", ['site:sass']);
+    gulp.watch(paths.bootstrap + "**/*.scss", ['bootstrap:sass']);
 });
 
 // site
