@@ -27,10 +27,9 @@ paths.siteSass = paths.site + "scss/site.scss";
 // watch
 // +++++++++++++++++++++++++++++++++++++++ 
 
-gulp.task("watch:sass", function() {
-    
-      gulp.watch(paths.siteSass,['site:sass']);
-    
+gulp.task("watch:sass", function () {
+    gulp.watch(paths.siteSass, ['site:sass']);
+    gulp.watch(paths.bootstrapSass, ['bootstrap:sass']);
 });
 
 // site
@@ -61,17 +60,14 @@ gulp.task("bootstrap:clean", function (cb) {
     rimraf(paths.bootstrapJsDest, cb);
 });
 
-gulp.task("bootstrap:js", function (cb) {
+gulp.task("bootstrap:js", function () {
     gulp.src(paths.bootstrapJs)
         .pipe(concat(paths.bootstrapJsDest))
         .pipe(uglify())
         .pipe(gulp.dest("."));
 });
 
-gulp.task("bootstrap:sass", function (cb) {
-    // clean
-    rimraf(paths.bootstrapSassDest, cb);
-    // build
+gulp.task("bootstrap:sass", function () {
     gulp.src(paths.bootstrapSass)
         .pipe(sass().on("error", sass.logError))
         .pipe(cssmin())
